@@ -3,10 +3,10 @@ import java.util.*;
 public class longest_substring {
     public static int lengthOfLongestSubstring(String s) {
 
-        HashMap<String, Integer> longsub = new LinkedHashMap<>();
+
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
+        for (int i = 0; i < s.length()-1; i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
                 list.add(s.substring(i, j));
 
             }
@@ -17,19 +17,18 @@ public class longest_substring {
         for (String eachstring : list) {
             String temp = "";
             for (int i = 0; i < eachstring.length(); i++) {
-                for (int j = i+1; j < eachstring.length(); j++) {
-                    if(eachstring.charAt(i)!=eachstring.charAt(j) && !temp.contains(""+eachstring.charAt(i))){
-                        temp+=eachstring.charAt(i);
+                 if(eachstring.indexOf(eachstring.charAt(i))!=eachstring.lastIndexOf(eachstring.charAt(i))){
+                       break;
                     }
                     else {
-                        break;
+                        temp+=eachstring.charAt(i);
                     }
                 }
                 if(!temp.isEmpty()){
                     longsub1.put(temp,temp.length());
                 }
             }
-        }
+
         System.out.println(longsub1);
         int max =0;
         for (Integer value : longsub1.values()) {
@@ -39,7 +38,7 @@ public class longest_substring {
     }
 
         public static void main (String[]args){
-            String s = "abcabcaa";
+            String s = "pwwkew";
 
             System.out.println(lengthOfLongestSubstring(s));
         }

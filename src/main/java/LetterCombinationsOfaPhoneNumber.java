@@ -33,7 +33,7 @@ public class LetterCombinationsOfaPhoneNumber {
         phone.put("x",9);
         phone.put("y",9);
         phone.put("z",9);
-       int num = Integer.valueOf(digits);
+       int num = Integer.parseInt(digits);
         int first = num%10;
         num = num/10;
         int second = num%10;
