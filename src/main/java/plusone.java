@@ -4,7 +4,7 @@ import java.util.List;
 
 public class plusone {
     public static void main(String[] args) {
-      int []nums = {1,2,9};
+      int []nums = {9,8,9};
         System.out.println(Arrays.toString(PlusOne(nums)));
     }
     public static int [] PlusOne(int [] digits){
