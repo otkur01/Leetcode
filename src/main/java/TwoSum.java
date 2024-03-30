@@ -1,11 +1,14 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
 
     public static void main(String[] args) {
 
-       int[] arry= {2,7,11,15};
-        System.out.println(Arrays.toString(twoSum(arry,9)));
+       int[] arry= {3,2,4};
+        System.out.println(Arrays.toString(twoSum2(arry,6)));
 
     }
 
@@ -30,10 +33,16 @@ public class TwoSum {
 
     }
     public static int[] twoSum2(int[] nums, int target) {
+        Map<Integer,Integer>numsMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
+            int result = target-nums[i];
+            if(numsMap.containsKey(result))return  new  int []{i,numsMap.get(result)};
+            else{
+            numsMap.put(nums[i],i);}
 
         }
-      return new int []{};
+
+        return new int[]{};
     }
     
 }

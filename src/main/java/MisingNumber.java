@@ -1,21 +1,34 @@
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MisingNumber {
     public static void main(String[] args) {
-        int []nums =  {9,6,4,2,3,5,7,0,1};
+        int []nums =  {0,1};
         System.out.println(missingNumber(nums));
 
     }
 
 
     public static int missingNumber(int[] nums) {
-      Arrays.sort(nums);
-      if(nums[nums.length-1]==nums.length-1)return nums.length;
-      int result =0;
-        for (int i = 1; i < nums.length; i++) {
-            if(nums[i]!=i)result= i;
+     int range = nums.length;
+        Set<Integer>set= new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
         }
 
-    return result;
+        for (int i = 0; i <= range; i++) {
+            if(!set.contains(i))return i;
+
+        }
+        return 0;
+    }
+    public static int missingNumber2(int[] nums) {
+        int sum=0;
+        int totalNumSum=(nums.length*(nums.length+1))/2;
+        for(int i=0;i<nums.length;i++){
+            sum+=nums[i];
+        }
+        return totalNumSum - sum;
     }
 }
