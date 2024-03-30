@@ -1,40 +1,33 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Sum3 {
     public static void main(String[] args) {
-
+        int []nums = {-1,0,1,2,-1,-4};
+        System.out.println(threeSum(nums));
     }
 
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-       List<List<Integer>>list = new ArrayList<>();
-        for (int i = 0; i < nums.length-2; i++) {
-            int r=nums.length-1;
-            int l=1;
-            while (r<l) {
-                int sum = nums[i] + nums[r] + nums[l];
-
-                if (sum == 0) {
+       Set<List<Integer>> list = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            int l= i+1;
+            int r = nums.length-1;
+            while (l<r){
+                int sum = nums[i]+nums[r]+nums[l];
+                if(sum==0) {
                     list.add(Arrays.asList(nums[i], nums[r], nums[l]));
-                    r--;
-                    l++;
+                   r--;
                 }
-                else if(sum<0){
-                    r++;
+                if(sum>0){
+                    r--;
                 }
                 else {
-                    r--;
+                    l++;
                 }
 
             }
-
-
-
         }
-
-  return list;
-
+        List<List<Integer>>list1 = new ArrayList<>(list);
+       return list1;
     }
 }
