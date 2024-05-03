@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class MisingNumber {
     public static void main(String[] args) {
@@ -12,7 +10,8 @@ public class MisingNumber {
 
     public static int missingNumber(int[] nums) {
      int range = nums.length;
-        Set<Integer>set= new HashSet<>();
+        List<Integer>set = new ArrayList<>();
+
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
@@ -31,4 +30,5 @@ public class MisingNumber {
         }
         return totalNumSum - sum;
     }
+
 }

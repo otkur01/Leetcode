@@ -8,6 +8,7 @@ public class TwoSum {
     public static void main(String[] args) {
 
        int[] arry= {3,2,4};
+        System.out.println(Arrays.toString(twoSum(arry,6)));
         System.out.println(Arrays.toString(twoSum2(arry,6)));
 
     }
@@ -36,7 +37,7 @@ public class TwoSum {
         Map<Integer,Integer>numsMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int result = target-nums[i];
-            if(numsMap.containsKey(result))return  new  int []{i,numsMap.get(result)};
+            if(numsMap.containsKey(result))return  new  int []{numsMap.get(result),i};
             else{
             numsMap.put(nums[i],i);}
 
