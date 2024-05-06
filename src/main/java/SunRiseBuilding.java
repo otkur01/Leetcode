@@ -16,8 +16,10 @@ public class SunRiseBuilding {
             case "EAST":
 
                 for (int i = 0; i < buildings.length - 1; i++) {
-                    if (buildings[i] > buildings[i + 1]) {
-                        integerStack.push(i);
+                    integerStack.push(i);
+                    if (buildings[i] < buildings[i + 1]) {
+                        integerStack.pop();
+                        i++;
                     }
 
 
@@ -28,6 +30,7 @@ public class SunRiseBuilding {
                 for (int i = buildings.length - 2; i > 0; i--) {
                     if (buildings[i] > buildings[i - 1]) {
                         integerStack.push(i);
+
                     }
                     break;
 
