@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class UniqueNumberOccurrences {
@@ -8,20 +10,8 @@ public class UniqueNumberOccurrences {
     }
 
     public static boolean uniqueOccurrences(int[] arr) {
-        Set<Integer>set = new HashSet<>();
+        Map<Integer,Integer>map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            int index = 0;
-            int freq = 0;
-            int temp = arr[i];
-            while (freq<arr.length){
-                if(temp==arr[freq++]){
-                    index++;
-                }
-
-            }
-
-            if(!set.add(index))return false;
-
 
         }
 
