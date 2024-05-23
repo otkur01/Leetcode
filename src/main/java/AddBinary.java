@@ -2,6 +2,7 @@ public class AddBinary {
     public static void main(String[] args) {
         String a = "1010", b = "1011";
         System.out.println(addBinary(a,b));
+        System.out.println(addBinary2(a,b));
 
 
     }
@@ -27,4 +28,29 @@ public class AddBinary {
         }
         return result.reverse().toString();
     }
+    public static String addBinary2(String A, String B) {
+      int lenA =A.length()-1;
+      int lenB =B.length()-1;
+      int trans = 0;
+      int sum =0;
+      String str = "";
+      String result ="";
+      while (lenB>=0 || lenA>=0 || trans==1){
+          sum = trans;
+         if(lenA>=0)sum+=(Integer.valueOf(A.charAt(lenA))-48);
+         if(lenB>=0)sum+=(Integer.valueOf(B.charAt(lenB))-48);
+         str+=""+(sum%2);
+         trans=sum/2;
+         lenB--;
+         lenA--;
+
+      }
+        for (int length = str.length()-1; length >=0; length--) {
+            result+=str.charAt(length)+"";
+        }
+
+  return result;
+    }
+
+
 }
