@@ -5,6 +5,21 @@ import java.util.Set;
 
 public class FindCylcleSLL {
 
+    public void main(String[] args) {
+        ListNode myNode = new ListNode(1);
+        ListNode myNode1 = new ListNode(1);
+        ListNode myNode2 = new ListNode(3);
+        ListNode myNode3 = new ListNode(4);
+        ListNode myNode4 = new ListNode(5);
+        myNode.next=myNode1;
+        myNode1.next=myNode2;
+        myNode2.next=myNode3;
+        myNode3.next=myNode4;
+       deleteDuplicates(myNode);
+
+
+    }
+
     public class ListNode {
         int val;
         ListNode next;
@@ -20,6 +35,10 @@ public class FindCylcleSLL {
             this.val = val;
             this.next = next;
         }
+
+        ListNode myNode = new ListNode();
+
+
 
     }
 
@@ -96,6 +115,26 @@ public class FindCylcleSLL {
 
         return tempHead.next;
 
+    }
+
+    public static ListNode deleteDuplicates(ListNode head) {
+        if(head==null)return null;
+
+        ListNode current = head;
+
+        while (current != null&& current.next!=null ) {
+            if(current.val==current.next.val){
+                current.next = current.next.next;
+            }
+            else{
+                current=current.next;
+            }
+
+        }
+
+
+
+        return head;
     }
 
 }
