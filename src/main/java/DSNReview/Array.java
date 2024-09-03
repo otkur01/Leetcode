@@ -15,6 +15,9 @@ public class Array {
                 arrReplaceRecursion(ar, 0, 6);
          System.out.println(Arrays.toString(ar));
 
+         System.out.println(findMax(ar));
+         System.out.println(getMin(ar));
+
     }
     public static int[] arrayReplace(int [] arr){
          int [] newArr = new int[arr.length];
@@ -82,5 +85,31 @@ public class Array {
         return arr;
     }
 
+    public static int findMax(int []arr){
+         int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            max = Math.max(max, arr[i]);
+        }
+
+    return max;
+    }
+    public static int findMin(int []arr){
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+           min = Math.min(min, arr[i]);
+        }
+
+        return min;
+    }
+
+    static int getMax(int[]arr){
+         return Arrays.stream(arr).max().getAsInt();
+
+    }
+
+    static int getMin(int[]arr){
+        return Arrays.stream(arr).min().getAsInt();
+
+    }
 
 }
